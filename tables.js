@@ -9,6 +9,7 @@ $(document).ready(async function () {
     $('#myTable').bootstrapTable({
         pagination: true,
         search: true,
+        locale: 'es-MX',
         columns: [{
             field: 'id',
             title: 'Id persona'
