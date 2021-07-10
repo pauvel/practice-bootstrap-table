@@ -1,29 +1,23 @@
-$(document).ready(function () {
-    const data = [{
-        id: 1,
-        name: 'Item 1',
-        price: '$1'
-      }, {
-        id: 2,
-        name: 'Item 2',
-        price: '$2'
-      }];
+$(document).ready(async function () {
 
+    const getPeople = async ()=>{
+        const response = await fetch('https://reqres.in/api/users?page=2');
+        return response.json();
+    };
 
+    const data = await getPeople();
     $('#myTable').bootstrapTable({
         columns: [{
             field: 'id',
-            title: 'Item ID'
+            title: 'Id persona'
           }, {
-            field: 'name',
-            title: 'Item Name'
+            field: 'first_name',
+            title: 'Nombre'
           }, {
-            field: 'price',
-            title: 'Item Price'
+            field: 'email',
+            title: 'Correo electronico'
           }],
-          data 
+          data: data.data
     });
-
-
 
 });
