@@ -7,6 +7,8 @@ $(document).ready(async function () {
 
     const data = await getPeople();
     $('#myTable').bootstrapTable({
+        pagination: true,
+        search: true,
         columns: [{
             field: 'id',
             title: 'Id persona'
